@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/app",
-  images: {
-    path: ""
-  }
+  // basePath: "/app",
 };
 
 export default nextConfig;
