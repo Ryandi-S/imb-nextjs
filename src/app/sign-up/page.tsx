@@ -11,6 +11,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { ImbButtonPrimary } from "@/devlink/ImbButtonPrimary"
+
 /**
  * Define the SignUpPage component
  * @returns The SignUpPage component
@@ -73,6 +75,12 @@ const SignUpPage = () => {
         className="max-w-[40rem] w-full h-full max-h-[40rem] sm:h-10/12 sm:w-1/h-10/12 object-cover mx-auto"
         quality={100}
       />
+
+      <div>
+        <ImbButtonPrimary buttonText="Button" variant="Base" />
+        <ImbButtonPrimary buttonText="Secondary" variant="secondary" />
+        <ImbButtonPrimary buttonText="Tertier" variant="tertier" />
+      </div>
 
       {/* Page title section */}
       <div className="flex items-center justify-center flex-wrap gap-2 mb-1">
