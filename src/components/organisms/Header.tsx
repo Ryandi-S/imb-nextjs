@@ -7,7 +7,7 @@ const Header = () => {
       {/* Left section: Logo and branding */}
       <div className="flex items-center gap-2">
         {/* Display logo image */}
-        <Image src="/images/logo.png" alt="logo" width={100} height={100} />
+        <Image src="/app/images/logo.png" alt="logo" width={100} height={100} />
       </div>
     </header>
   );

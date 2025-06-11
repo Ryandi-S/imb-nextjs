@@ -66,7 +66,7 @@ const SignUpPage = () => {
 
       {/* Banner image at the top of the page */}
       <Image
-        src="/images/banner.png"
+        src="/app/images/banner.png"
         alt="sign-up-bg"
         width={1000}
         height={1000}
@@ -100,7 +100,7 @@ const SignUpPage = () => {
           value={dataForm.firstName}
           name="firstName"
           onChange={handleOnChange("firstName")}
-          icon="/icons/ic_profile.svg"
+          icon="/app/icons/ic_profile.svg"
           error={error.firstName}
         />
 
@@ -111,7 +111,7 @@ const SignUpPage = () => {
           name="phoneNumber"
           onChange={handleOnChange("phoneNumber")}
           error={error.phoneNumber}
-          icon="/icons/ic_phone.svg"
+          icon="/app/icons/ic_phone.svg"
         />
 
         {/* Email input */}
@@ -119,7 +119,7 @@ const SignUpPage = () => {
           placeholder="Email"
           value={dataForm.email}
           name="email"
-          icon="/icons/ic_mail.svg"
+          icon="/app/icons/ic_mail.svg"
           onChange={handleOnChange("email")}
           error={error.email}
         />
