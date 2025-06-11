@@ -5,13 +5,12 @@ import Toast from "@/components/atoms/Toast";
 import Heading from "@/components/atoms/typography/Heading";
 import Text from "@/components/atoms/typography/Text";
 import InputFieldGroup from "@/components/molecules/InputFieldGroup";
-import { useSignup } from "@/hooks/useSignup";
+import { useSignup } from "@/hooks/auth/useSignup";
+import { useEligible } from "@/hooks/eligible/useEligible";
 import { Status } from "@/types/status";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
-import { ImbButtonPrimary } from "@/devlink/ImbButtonPrimary"
 
 /**
  * Define the SignUpPage component
@@ -22,7 +21,9 @@ const SignUpPage = () => {
    * Get all form handlers and state from the useSignup custom hook
    * @returns The useSignup hook
    */
-  const { handleSubmit, handleOnChange, dataForm, error } = useSignup();
+  const { handleOnChange, dataForm, error } = useSignup();
+
+  const { handleToEligible } = useEligible();
 
   /**
    * Toast message for feedback
@@ -42,17 +43,10 @@ const SignUpPage = () => {
    */
   const onSubmit = async () => {
     setIsLoading(true); // Start loading
-    const result = await handleSubmit(); // Attempt to submit the form
-    setIsLoading(false); // Stop loading
 
-    /**
-     * If successful, show toast message
-     * @param result - The result
-     * @returns The toast message
-     */
-    if (result === Status.SUCCESS) {
-      setToastMsg("success");
-    }
+    handleToEligible(dataForm);
+
+    setIsLoading(false); // Stop loading
   };
 
   return (
@@ -75,12 +69,6 @@ const SignUpPage = () => {
         className="max-w-[40rem] w-full h-full max-h-[40rem] sm:h-10/12 sm:w-1/h-10/12 object-cover mx-auto"
         quality={100}
       />
-
-      <div>
-        <ImbButtonPrimary buttonText="Button" variant="Base" />
-        <ImbButtonPrimary buttonText="Secondary" variant="secondary" />
-        <ImbButtonPrimary buttonText="Tertier" variant="tertier" />
-      </div>
 
       {/* Page title section */}
       <div className="flex items-center justify-center flex-wrap gap-2 mb-1">
@@ -148,6 +136,7 @@ const SignUpPage = () => {
       </div>
 
       {/* Submit button */}
+      {/* <ImbButtonPrimary buttonText="Continue" variant="Base" /> */}
       <Button
         variant="primary"
         className="w-full font-semibold"

@@ -27,5 +27,7 @@ export default function Heading({
   };
 
   // Render the heading with corresponding tag and styling
-  return <Tag className={`${baseClass[level]} ${className}`}>{children}</Tag>;
+  return (
+    <Tag className={`${baseClass[level]} m-0 ${className}`}>{children}</Tag>
+  );
 }

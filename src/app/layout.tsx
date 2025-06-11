@@ -1,8 +1,9 @@
 "use client";
 
 import { Roboto } from "next/font/google";
-import '@/devlink/global.css';
-import "../styles/globals.css";
+// import "@/styles/globals.css";
+// import "@/devlink/global.css";
+import "./globals.css";
 import { Provider } from "react-redux";
 import { persistor, store } from "@/stores";
 import WrapLayout from "./_wrap-layout";

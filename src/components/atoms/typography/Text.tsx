@@ -22,6 +22,6 @@ export default function Text({
 
   // Render the text inside a paragraph element with styling
   return (
-    <p className={`${sizeClass} text-gray-800 ${className}`}>{children}</p>
+    <p className={`${sizeClass} m-0 text-gray-800 ${className}`}>{children}</p>
   );
 }

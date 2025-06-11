@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "@/components/organisms/Header";
-import useRouteRedirect from "@/hooks/useRouteRedirect";
+// import useRouteRedirect from "@/hooks/useRouteRedirect";
 import { ReactNode } from "react";
 
 /**
@@ -12,10 +12,11 @@ import { ReactNode } from "react";
  */
 export default function WrapLayout({ children }: { children: ReactNode }) {
   /**
+   * Remove the useRouteRedirect hook for now
    * Invoke a custom hook for redirection logic (e.g., based on auth or route guards)
    * @returns The useRouteRedirect hook
    */
-  useRouteRedirect();
+  // useRouteRedirect();
 
   return (
     <main className="base-container-web pb-4">
