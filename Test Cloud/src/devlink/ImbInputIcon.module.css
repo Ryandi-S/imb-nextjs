@@ -1,0 +1,61 @@
+.imb-input {
+  margin-bottom: 24px;
+}
+
+.imb-input-container {
+  position: relative;
+  height: 56px;
+}
+
+.imb-input-label {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+
+  pointer-events: none;
+
+  font-weight: 400;
+
+  cursor: text;
+}
+
+.imb-input-label.imb-input-icon-label {
+  left: 48px;
+}
+
+.imb-input-field {
+  height: 100%;
+  margin-bottom: 0px;
+  padding: 16px;
+
+  border: 1px none var(--color-primary);
+  border-radius: 8px;
+
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1);
+
+  font-size: 20px;
+}
+
+.imb-input-field.imb-input-icon-field {
+  padding-left: 48px;
+}
+
+.imb-input-field-icon-image {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+
+  width: 16px;
+  height: 16px;
+
+  pointer-events: none;
+
+  cursor: text;
+}
+
+.imb-input-error-message {
+  margin-top: 8px;
+  color: hsla(0, 100.00%, 50.00%, 1.00);
+  font-size: 12px;
+  line-height: 16px;
+}

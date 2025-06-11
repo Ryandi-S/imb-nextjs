@@ -1,0 +1,40 @@
+.imb-hero-banner {
+  position: relative;
+
+  overflow: hidden;
+  width: 100%;
+  height: 460px;
+
+  border-radius: 24px;
+
+  background-color: var(--light-gray);
+}
+
+.imb-hero-banner-image {
+  position: relative;
+  overflow: hidden;
+  width: 65%;
+  height: 100%;
+  margin-left: 35%;
+}
+
+.imb-hero-baner-image-src {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.imb-hero-banner-content {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+
+  width: 35%;
+  height: 100%;
+  padding: 48px;
+}
+
+.imb-typography-light {
+  font-weight: 400;
+}

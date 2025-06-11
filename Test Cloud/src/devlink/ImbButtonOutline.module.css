@@ -1,0 +1,94 @@
+.imb-button {
+  position: relative;
+
+  display: inline-block;
+  min-width: 100px;
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+
+  border-top-left-radius: 999px;
+  border-top-right-radius: 999px;
+  border-bottom-left-radius: 999px;
+  border-bottom-right-radius: 999px;
+
+  background-color: var(--color-primary);
+
+  transition-property: background-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.imb-button:where(.w-variant-4638f536-2f69-99c4-07f0-0dd395532f38) {
+  border: 1px solid var(--color-primary);
+  background-color: var(--white);
+}
+
+.imb-button:where(.w-variant-9ddb0cbd-b4db-df36-39ad-7e33a2cdac6e) {
+  background-color: var(--color-tertiary-dark);
+}
+
+.imb-button:hover {
+  background-color: var(--color-secondary);
+}
+
+.imb-button:hover:where(.w-variant-4638f536-2f69-99c4-07f0-0dd395532f38) {
+  background-color: var(--color-secondary-light);
+}
+
+.imb-button.imb-button-outline {
+  border: 1px solid var(--color-primary);
+  background-color: var(--white);
+}
+
+.imb-button.imb-button-outline:hover {
+  background-color: var(--color-secondary-light);
+}
+
+.imb-button.imb-button-outline.imb-button-disabled {
+  border-color: var(--gray);
+  background-color: transparent;
+}
+
+.imb-button.imb-button-with-icon {
+  min-width: 0px;
+  padding-right: 52px;
+}
+
+.imb-button.imb-button-large {
+  min-width: 140px;
+  padding: 24px 40px;
+}
+
+.imb-button.imb-button-disabled {
+  background-color: var(--gray);
+  cursor: not-allowed;
+}
+
+.imb-button.secondary {
+  border: 1px solid var(--color-primary);
+  background-color: var(--white);
+}
+
+.imb-button.secondary:hover {
+  background-color: var(--color-secondary-light);
+}
+
+.imb-button.tertier {
+  background-color: var(--color-tertiary-dark);
+}
+
+.imb-button-text {
+  margin-bottom: 0px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.imb-button-text.imb-button-text-disabled {
+  color: var(--dark-gray);
+}

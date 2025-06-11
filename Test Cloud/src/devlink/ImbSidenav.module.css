@@ -1,0 +1,13 @@
+.imb-menu-link-set {
+  width: 80px;
+  height: 100%;
+  padding-top: 100px;
+  padding-right: 12px;
+  padding-left: 12px;
+
+  transition: width 300ms ease;
+}
+
+.imb-menu-link-set:hover {
+  width: 184px;
+}
