@@ -146,7 +146,7 @@ export default function Home() {
       <ImbButtonPrimary 
         buttonText={isLoading ? "Loading..." : "Continue"}
         variant="Base" 
-        children=<p>fuja</p>
+        // children=<p>test</p>
         runtimeProps={{ 
           onClick: () => {
             alert("Button Clicked");
