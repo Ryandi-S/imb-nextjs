@@ -1,9 +1,9 @@
-import { signupService } from "@/services/auth/signup";
+import { AuthRepository } from "@/repositories/auth";
 import { RootState } from "@/stores";
 import { Users } from "@/types/user";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 /**
  * Define the mode for validation
@@ -85,8 +85,6 @@ const validate = (
  * @returns The error  and other functions
  */
 export const useSignup = () => {
-  const dispatch = useDispatch();
-
   const { users } = useSelector((state: RootState) => state.users);
 
   /**
@@ -125,10 +123,14 @@ export const useSignup = () => {
      * @param dataForm - The data form
      * @returns The res
      */
-    await signupService(users as Users, dispatch);
+    const { data, error } = await AuthRepository.SignUp(users as Users);
 
-    router.push("/");
-    return "success";
+    if (error) {
+      console.log(error);
+      return;
+    }
+
+    router.push("/success");
   };
 
   /**

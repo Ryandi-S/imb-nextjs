@@ -12,24 +12,24 @@ import { Endpoint } from "@/types/endpoint";
  *
  */
 
-/**
- * Generic API caller with adapter and callbacks.
- *
- * @param endpoint - Endpoint config (method, url, dummy flag)
- * @param adapter - Function to adapt raw request
- * @param values - Payload for request
- * @param onSuccess - Called when API call is successful
- * @param onError - Called when API call fails
- */
-const apiCall = async <Input = unknown, Output = unknown>(
+export interface ApiCallResult<T> {
+  data: T | null;
+  error: Error | null;
+}
+
+const apiCall = async <
+  Input = unknown,
+  Output = unknown,
+  RawResponse = unknown // ← response asli dari server
+>(
   endpoint: Endpoint,
   adapter: (data: Input) => unknown,
   values: Input,
-  onSuccess: (data?: unknown) => Output,
-  onError: (error: unknown) => unknown
-): Promise<Output> => {
+  onSuccess: (data: RawResponse) => Output,
+  onError?: (error: unknown) => unknown
+): Promise<ApiCallResult<Output>> => {
   if (endpoint.useDummyData) {
-    return onSuccess();
+    return { data: onSuccess({} as RawResponse), error: null };
   }
 
   try {
@@ -37,14 +37,15 @@ const apiCall = async <Input = unknown, Output = unknown>(
       endpoint.url,
       adapter(values) as never
     );
-    console.log(response.data);
 
-    return onSuccess(response.data.data);
-  } catch (error) {
-    console.log("Error >>", error);
+    return { data: onSuccess(response.data.data), error: null };
+  } catch (err: any) {
+    const mappedError = new Error(
+      err.response?.data?.message || "Internal Server Error"
+    );
 
-    onError(error);
-    throw error;
+    onError?.(mappedError);
+    return { data: null, error: mappedError };
   }
 };
 

@@ -1,4 +1,3 @@
-// Define the Users type
 /**
  * Define the Users type
  * @returns The Users type
@@ -9,7 +8,6 @@ export interface Users {
   phoneNumber: string;
 }
 
-// Define the Signup type
 /**
  * Define the Signup type
  * @returns The Signup type

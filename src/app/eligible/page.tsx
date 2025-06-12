@@ -6,9 +6,17 @@ import { useSignup } from "@/hooks/auth/useSignup";
 import { RootState } from "@/stores";
 import { useSelector } from "react-redux";
 
+/**
+ * Eligible Page
+ * @returns The Eligible Page
+ */
 const EliglePage = () => {
   const { users } = useSelector((state: RootState) => state.users);
 
+  /**
+   * Handle the submit event
+   * @returns The handleSubmit function
+   */
   const { handleSubmit } = useSignup();
 
   return (
