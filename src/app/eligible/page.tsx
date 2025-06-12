@@ -17,10 +17,12 @@ const EliglePage = () => {
    * Handle the submit event
    * @returns The handleSubmit function
    */
-  const { handleSubmit } = useSignup();
+  const { handleSubmit, isLoading } = useSignup();
 
   return (
     <>
+      <div className="bg-gray-600 w-full h-8 my-3 rounded-lg" />
+
       <Text size="lg">User Name: {users?.firstName}</Text>
       <Text size="lg">User Email: {users?.email}</Text>
       <Text size="lg">User Phone: {users?.phoneNumber}</Text>
@@ -31,7 +33,7 @@ const EliglePage = () => {
           className="w-full mt-8"
           onClick={handleSubmit}
         >
-          Confirm
+          {isLoading ? "Loading..." : "Confirm"}
         </Button>
       </div>
     </>

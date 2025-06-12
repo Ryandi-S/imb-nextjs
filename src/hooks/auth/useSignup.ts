@@ -87,6 +87,8 @@ const validate = (
 export const useSignup = () => {
   const { users } = useSelector((state: RootState) => state.users);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   /**
    * Define the data form
    * @returns The data form
@@ -118,12 +120,14 @@ export const useSignup = () => {
    * @returns The handleSubmit function
    */
   const handleSubmit = async () => {
+    setIsLoading(true);
     /**
      * Submit the signup data
      * @param dataForm - The data form
      * @returns The res
      */
     const { data, error } = await AuthRepository.SignUp(users as Users);
+    setIsLoading(false);
 
     if (error) {
       console.log(error);
@@ -173,5 +177,5 @@ export const useSignup = () => {
       setError((prev) => ({ ...prev, [field]: singleError ?? "" }));
     };
 
-  return { handleSubmit, handleOnChange, dataForm, error };
+  return { handleSubmit, handleOnChange, dataForm, error, isLoading };
 };
