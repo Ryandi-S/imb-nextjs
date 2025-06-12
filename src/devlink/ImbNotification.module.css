@@ -1,0 +1,19 @@
+.imb-notification {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+
+  border-radius: 8px;
+
+  background-color: #008d8d;
+
+  font-size: 12px;
+}
+
+.image-6 {
+  margin-right: 20px;
+}
+
+.text-block-6 {
+  color: var(--white);
+}

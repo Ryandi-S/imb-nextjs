@@ -53,6 +53,30 @@
   cursor: text;
 }
 
+.button {
+  position: absolute;
+  left: auto;
+  top: 8px;
+  right: 10px;
+  bottom: 0%;
+
+  display: none;
+  width: 80px;
+  height: 40px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  justify-content: center;
+  align-items: flex-end;
+
+  border-radius: 15px;
+
+  background-color: #003c44;
+}
+
+.button:where(.w-variant-e8d85457-56e5-812f-98fb-4f1ce3c4bd91) {
+  display: flex;
+}
+
 .imb-input-error-message {
   margin-top: 8px;
   color: hsla(0, 100.00%, 50.00%, 1.00);

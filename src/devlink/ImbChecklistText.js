@@ -2,11 +2,12 @@
 import React from "react";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
-import _styles from "./Checklist.module.css";
+import _styles from "./ImbChecklistText.module.css";
 
-export function Checklist({
+export function ImbChecklistText({
   as: _Component = _Builtin.Block,
   text = "Checklist Item",
+  image = "https://cdn.prod.website-files.com/681079166d5ce9a9cd684b2c/682ae1a92c04847a975ca857_user-check.svg",
 }) {
   return (
     <_Component className={_utils.cx(_styles, "div-block-5")} tag="div">
@@ -19,7 +20,7 @@ export function Checklist({
         width="auto"
         height="auto"
         alt=""
-        src="https://cdn.prod.website-files.com/681079166d5ce9a9cd684b2c/682ae1a92c04847a975ca857_user-check.svg"
+        src={image}
       />
     </_Component>
   );

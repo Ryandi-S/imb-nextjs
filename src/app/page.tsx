@@ -11,6 +11,8 @@ import { Status } from "@/types/status";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { ImbButtonPrimary } from "@/devlink/ImbButtonPrimary"
+import InputWrapper from "@/components/molecules/InputWrapper"
 
 /**
  * Define the Home component that displays a welcome message and a list of todos
@@ -91,6 +93,10 @@ export default function Home() {
       {/* Input fields */}
       <div className="flex flex-col gap-2.5">
         {/* First name input */}
+
+        <InputWrapper type="phone" />
+        <InputWrapper type="email" />
+
         <InputFieldGroup
           placeholder="First name"
           value={dataForm.firstName}
@@ -136,14 +142,25 @@ export default function Home() {
       </div>
 
       {/* Submit button */}
-      {/* <ImbButtonPrimary buttonText="Continue" variant="Base" /> */}
-      <Button
+
+      <ImbButtonPrimary 
+        buttonText={isLoading ? "Loading..." : "Continue"}
+        variant="Base" 
+        runtimeProps={{ 
+          onClick: () => {
+            alert("Button Clicked");
+            onSubmit();
+          }
+        }} 
+      />
+
+      {/* <Button
         variant="primary"
         className="w-full font-semibold"
         onClick={onSubmit}
       >
         {isLoading ? "Loading..." : "Continue"}
-      </Button>
+      </Button> */}
     </>
   );
 }

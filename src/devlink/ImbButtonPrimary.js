@@ -9,6 +9,7 @@ export function ImbButtonPrimary({
   buttonText = "Button",
   id = "",
   variant = "Base",
+  runtimeProps = {},
 }) {
   const _styleVariantMap = {
     Base: "",
@@ -23,6 +24,7 @@ export function ImbButtonPrimary({
       className={_utils.cx(_styles, "imb-button", _activeStyleVariant)}
       tag="div"
       id={id}
+      {...runtimeProps}
     >
       <_Builtin.Paragraph
         className={_utils.cx(_styles, "imb-button-text", _activeStyleVariant)}

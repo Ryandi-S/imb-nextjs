@@ -38,3 +38,8 @@
 .imb-typography-light {
   font-weight: 400;
 }
+
+.imb-color-deep-green {
+  margin-bottom: 10px;
+  color: var(--color-deep-blue-green);
+}

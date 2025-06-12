@@ -6,4 +6,5 @@ declare function ImbButtonPrimary(props: {
   buttonText?: React.ReactNode;
   id?: Types.Basic.IdTextInput;
   variant?: "Base" | "secondary" | "tertier";
+  runtimeProps?: Types.Devlink.RuntimeProps;
 }): React.JSX.Element;
