@@ -12,6 +12,7 @@ export function ImbInputIcon({
   type = "text",
   variant = "Base",
   runtimeProps = {},
+  errorText = "* Field is required",
 }) {
   const _styleVariantMap = {
     Base: "",
@@ -30,7 +31,6 @@ export function ImbInputIcon({
       )}
       tag="div"
       id={id}
-      {...runtimeProps}
     >
       <_Builtin.Block
         className={_utils.cx(
@@ -99,7 +99,7 @@ export function ImbInputIcon({
         )}
         tag="div"
       >
-        {"* Field is required"}
+        {errorText}
       </_Builtin.Block>
     </_Component>
   );

@@ -10,6 +10,7 @@ export function ImbButtonPrimary({
   id = "",
   variant = "Base",
   runtimeProps = {},
+  children = "",
 }) {
   const _styleVariantMap = {
     Base: "",
@@ -31,6 +32,7 @@ export function ImbButtonPrimary({
       >
         {buttonText}
       </_Builtin.Paragraph>
+      <_Builtin.Block tag="div">{children}</_Builtin.Block>
     </_Component>
   );
 }

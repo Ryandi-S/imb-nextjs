@@ -34,4 +34,5 @@ export * from "./ImbMenuLinkActive";
 export * from "./ImbNotification";
 export * from "./ImbSidenav";
 export * from "./ImbStepper";
+export * from "./ImbStepperStep";
 export * from "./Line";
