@@ -1,0 +1,21 @@
+.div-block-15 {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.imb-color-deep-green {
+  margin-bottom: 10px;
+  color: var(--color-deep-blue-green);
+}
+
+.div-block-13 {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  border-radius: 16px;
+  background-color: #eafbbf;
+}
+
+.text-block-7 {
+  color: var(--color-black-26);
+}

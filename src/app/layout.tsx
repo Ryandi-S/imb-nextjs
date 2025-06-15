@@ -5,7 +5,7 @@ import { Roboto } from "next/font/google";
 // import "@/devlink/global.css";
 import "./globals.css";
 import { Provider } from "react-redux";
-import { persistor, store } from "@/stores";
+import { persistor, store } from "@/redux/stores";
 import WrapLayout from "./_wrap-layout";
 import { PersistGate } from "redux-persist/integration/react";
 import { ReactNode } from "react";

@@ -3,15 +3,15 @@
 import Button from "@/components/atoms/Button";
 import Text from "@/components/atoms/typography/Text";
 import { useSignup } from "@/hooks/auth/useSignup";
-import { RootState } from "@/stores";
-import { useSelector } from "react-redux";
+import { RootState } from "@/redux/stores";
+import { useAppSelector } from "@/redux/hooks/useAppSelector";
 
 /**
  * Eligible Page
  * @returns The Eligible Page
  */
 const EliglePage = () => {
-  const { users } = useSelector((state: RootState) => state.users);
+  const { users } = useAppSelector((state: RootState) => state.users);
 
   /**
    * Handle the submit event

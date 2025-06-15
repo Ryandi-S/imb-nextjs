@@ -6,7 +6,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
  */
 export interface UserState {
   users: Users | null;
-  registered: boolean;
+  isRegistered: boolean;
 }
 
 /**
@@ -15,7 +15,7 @@ export interface UserState {
  */
 const initialState: UserState = {
   users: null,
-  registered: false,
+  isRegistered: false,
 };
 
 /**
@@ -34,7 +34,7 @@ const userSlice = createSlice({
      */
     setProfileUser: (state, action: PayloadAction<Users>) => {
       state.users = action.payload;
-      state.registered = true;
+      state.isRegistered = true;
     },
     /**
      * Logout the user
@@ -43,7 +43,7 @@ const userSlice = createSlice({
      */
     logout: (state) => {
       state.users = null;
-      state.registered = false;
+      state.isRegistered = false;
     },
   },
 });

@@ -1,12 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "@/redux/hooks/useAppDispatch";
 
 import { Users } from "@/types/user";
 import { useRouter } from "next/navigation";
-import { setProfileUser } from "@/stores/slices/userSlice";
+import { setProfileUser } from "@/redux/reducers/user";
 
 export const useEligible = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleToEligible = (dataForm: Users) => {
     dispatch(setProfileUser(dataForm));

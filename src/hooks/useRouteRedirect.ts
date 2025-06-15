@@ -1,10 +1,10 @@
 "use client";
 
-import { RootState } from "@/stores";
+import { RootState } from "@/redux/stores";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { usePersistHydrated } from "./usePersistHydrated";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "@/redux/hooks/useAppSelector";
 
 /**
  * Define the useRouteRedirect hook
@@ -12,8 +12,8 @@ import { useSelector } from "react-redux";
  */
 const useRouteRedirect = () => {
   const hydrated = usePersistHydrated();
-  const isRegistered = useSelector(
-    (state: RootState) => state.users.registered
+  const isRegistered = useAppSelector(
+    (state: RootState) => state.users.isRegistered
   );
 
   const pathname = usePathname();

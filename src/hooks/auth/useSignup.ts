@@ -1,9 +1,9 @@
-import { AuthRepository } from "@/repositories/auth";
-import { RootState } from "@/stores";
+import { RootState } from "@/redux/stores";
 import { Users } from "@/types/user";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "@/redux/hooks/useAppSelector";
+import authRepository from "@/repository/auth";
 
 /**
  * Define the mode for validation
@@ -85,7 +85,7 @@ const validate = (
  * @returns The error  and other functions
  */
 export const useSignup = () => {
-  const { users } = useSelector((state: RootState) => state.users);
+  const { users } = useAppSelector((state: RootState) => state.users);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -126,15 +126,15 @@ export const useSignup = () => {
      * @param dataForm - The data form
      * @returns The res
      */
-    const { data, error } = await AuthRepository.SignUp(users as Users);
-    setIsLoading(false);
-
-    if (error) {
+    try {
+      const res = await authRepository.signup(users as Users);
+      console.log("res signup", res);
+      router.push("/success");
+    } catch (error) {
       console.log(error);
-      return;
+    } finally {
+      setIsLoading(false);
     }
-
-    router.push("/success");
   };
 
   /**

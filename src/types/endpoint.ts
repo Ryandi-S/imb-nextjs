@@ -1,14 +1,4 @@
-/**
- * Define the method
- * @returns The method object
- */
-export enum Method {
-  GET = "get",
-  POST = "post",
-  PUT = "put",
-  DELETE = "delete",
-  PATCH = "patch",
-}
+import { API_METHODS } from "@/services/apiServices.type";
 
 /**
  * Define the endpoint
@@ -16,6 +6,6 @@ export enum Method {
  */
 export type Endpoint = {
   url: string;
-  method: Method;
+  method: API_METHODS;
   useDummyData: boolean;
 };

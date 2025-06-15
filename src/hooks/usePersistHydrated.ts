@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { persistStore } from "redux-persist";
-import { store } from "@/stores";
+import { store } from "@/redux/stores";
 
 /**
  * Define the usePersistHydrated hook

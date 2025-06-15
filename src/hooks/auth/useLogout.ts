@@ -1,14 +1,14 @@
-import { logout } from "@/stores/slices/userSlice";
+import { logout } from "@/redux/reducers/user";
 import { useRouter } from "next/navigation";
-import { persistor } from "@/stores";
-import { useDispatch } from "react-redux";
+import { persistor } from "@/redux/stores";
+import { useAppDispatch } from "@/redux/hooks/useAppDispatch";
 
 /**
  * Define the useLogout hook
  * @returns The useLogout hook
  */
 export const useLogout = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   /**
