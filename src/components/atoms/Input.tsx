@@ -1,50 +1,52 @@
 "use client";
 
+import { ImbInputIcon } from "@/devlink";
 import Image from "next/image";
 import React from "react";
 
-// Define the props the Input component accepts
 type Props = {
-  placeholder: string; // Placeholder text for the input
-  type?: string; // Input type (default: "text")
-  value: string; // Current value of the input field
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; // Change handler
-  icon?: string; // Optional icon path to show inside the input
-  name: string; // Name attribute for the input
+  type: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+  icon: string;
+  errorText: string;
 };
 
+/**
+ * Render the input field with optional icon and styling
+ * @param type - The type of input
+ * @param value - The value of the input
+ * @param onChange - The function to call when the input value changes
+ * @param placeholder - The placeholder text for the input
+ * @param icon - The icon to display in the input
+ * @param errorText - The text to display if there is an error
+ */
 const Input = ({
-  type = "text", // Default input type
+  type,
   value,
   onChange,
   placeholder,
-  name,
   icon,
+  errorText,
 }: Props) => {
-  // Render the input field with optional icon and styling
+  /**
+   * Render the input field with optional icon and styling
+   * @returns The input field with optional icon and styling
+   */
   return (
-    <div className="relative">
-      {/* Render the icon if provided */}
-      {icon !== "" && (
-        <Image
-          src={icon ? icon : ""} // Icon path or empty if not provided
-          width={100}
-          height={100}
-          className="h-4 w-4 absolute left-4 top-1/2 -translate-y-1/2"
-          alt="Input Icon"
-        />
-      )}
-
-      {/* The actual input field */}
-      <input
-        placeholder={placeholder}
-        type={type}
-        value={value}
-        onChange={onChange}
-        name={name}
-        className="w-full pl-12 pr-4 py-4 shadow-md/30 shadow-gray-500 rounded-lg text-[#262828] placeholder:text-[#262828] bg-white focus:outline-none"
-      />
-    </div>
+    <ImbInputIcon
+      label={value === "" ? placeholder : ""}
+      errorText={errorText}
+      type={type}
+      image={icon}
+      inputProps={{
+        value,
+        onInput: (e: React.ChangeEvent<HTMLInputElement>) => {
+          onChange(e);
+        },
+      }}
+    />
   );
 };
 

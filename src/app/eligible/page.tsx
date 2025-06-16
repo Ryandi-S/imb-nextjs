@@ -5,6 +5,7 @@ import Text from "@/components/atoms/typography/Text";
 import { useSignup } from "@/hooks/auth/useSignup";
 import { RootState } from "@/redux/stores";
 import { useAppSelector } from "@/redux/hooks/useAppSelector";
+import { ImbButtonPrimary } from "@/devlink/ImbButtonPrimary";
 
 /**
  * Eligible Page
@@ -27,15 +28,15 @@ const EliglePage = () => {
       <Text size="lg">User Email: {users?.email}</Text>
       <Text size="lg">User Phone: {users?.phoneNumber}</Text>
 
-      <div className="flex w-full">
-        <Button
-          variant="primary"
-          className="w-full mt-8"
-          onClick={handleSubmit}
-        >
-          {isLoading ? "Loading..." : "Confirm"}
-        </Button>
-      </div>
+      <ImbButtonPrimary
+        buttonText={isLoading ? "Loading..." : "Confirm"}
+        variant="Base"
+        runtimeProps={{
+          onClick: () => {
+            handleSubmit();
+          },
+        }}
+      />
     </>
   );
 };

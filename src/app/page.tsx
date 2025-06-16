@@ -4,15 +4,14 @@ import Button from "@/components/atoms/Button";
 import Toast from "@/components/atoms/Toast";
 import Heading from "@/components/atoms/typography/Heading";
 import Text from "@/components/atoms/typography/Text";
-import InputFieldGroup from "@/components/molecules/InputFieldGroup";
 import { useSignup } from "@/hooks/auth/useSignup";
 import { useEligible } from "@/hooks/eligible/useEligible";
 import { Status } from "@/types/status";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ImbButtonPrimary } from "@/devlink/ImbButtonPrimary"
-import InputWrapper from "@/components/molecules/InputWrapper"
+import { ImbButtonPrimary } from "@/devlink/ImbButtonPrimary";
+import InputFieldGroup from "@/components/molecules/InputFieldGroup";
 
 /**
  * Define the Home component that displays a welcome message and a list of todos
@@ -34,21 +33,11 @@ export default function Home() {
   const [toastMsg, setToastMsg] = useState<string>("");
 
   /**
-   * Loading state for the submit button
-   * @returns The loading state
-   */
-  const [isLoading, setIsLoading] = useState(false);
-
-  /**
    * Handle the sign-up form submission
    * @returns The onSubmit function
    */
   const onSubmit = async () => {
-    setIsLoading(true); // Start loading
-
     handleToEligible(dataForm);
-
-    setIsLoading(false); // Stop loading
   };
 
   return (
@@ -91,41 +80,36 @@ export default function Home() {
       </Text>
 
       {/* Input fields */}
-      <div className="flex flex-col gap-2.5">
-        {/* First name input */}
 
-        <InputWrapper type="phone" />
-        <InputWrapper type="email" />
+      {/* First name input */}
+      <InputFieldGroup
+        type="text"
+        placeholder="First name"
+        value={dataForm.firstName}
+        onChange={handleOnChange("firstName")}
+        icon="/app/icons/ic_profile.svg"
+        errorText={error.firstName}
+      />
 
-        <InputFieldGroup
-          placeholder="First name"
-          value={dataForm.firstName}
-          name="firstName"
-          onChange={handleOnChange("firstName")}
-          icon="/app/icons/ic_profile.svg"
-          error={error.firstName}
-        />
+      {/* Mobile input */}
+      <InputFieldGroup
+        type="text"
+        placeholder="Mobile"
+        value={dataForm.phoneNumber}
+        onChange={handleOnChange("phoneNumber")}
+        icon="/app/icons/ic_phone.svg"
+        errorText={error.phoneNumber}
+      />
 
-        {/* Phone number input */}
-        <InputFieldGroup
-          placeholder="Mobile"
-          value={dataForm.phoneNumber}
-          name="phoneNumber"
-          onChange={handleOnChange("phoneNumber")}
-          error={error.phoneNumber}
-          icon="/app/icons/ic_phone.svg"
-        />
-
-        {/* Email input */}
-        <InputFieldGroup
-          placeholder="Email"
-          value={dataForm.email}
-          name="email"
-          icon="/app/icons/ic_mail.svg"
-          onChange={handleOnChange("email")}
-          error={error.email}
-        />
-      </div>
+      {/* Email input */}
+      <InputFieldGroup
+        type="text"
+        placeholder="Email"
+        value={dataForm.email}
+        onChange={handleOnChange("email")}
+        icon="/app/icons/ic_mail.svg"
+        errorText={error.email}
+      />
 
       {/* Terms and Privacy links */}
       <div className="mt-10 mb-5 flex-wrap flex items-center gap-1">
@@ -143,25 +127,16 @@ export default function Home() {
 
       {/* Submit button */}
 
-      <ImbButtonPrimary 
-        buttonText={isLoading ? "Loading..." : "Continue"}
-        variant="Base" 
-        // children=<p>test</p>
-        runtimeProps={{ 
+      <ImbButtonPrimary
+        buttonText="Continue"
+        variant="Base"
+        runtimeProps={{
+          disabled: "",
           onClick: () => {
-            alert("Button Clicked");
             onSubmit();
-          }
-        }} 
+          },
+        }}
       />
-
-      {/* <Button
-        variant="primary"
-        className="w-full font-semibold"
-        onClick={onSubmit}
-      >
-        {isLoading ? "Loading..." : "Continue"}
-      </Button> */}
     </>
   );
 }
