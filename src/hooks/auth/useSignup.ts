@@ -36,18 +36,18 @@ const validate = (
   // Check if the field is required and if the value is valid
   const check = (field: keyof Users, value: string) => {
     if (field === "firstName" && !value) {
-      return "First name wajib diisi.";
+      return "First name is required.";
     }
 
     if (field === "email") {
-      if (!value) return "Email wajib diisi.";
-      if (!emailRegex.test(value)) return "Email tidak valid.";
+      if (!value) return "Email is required.";
+      if (!emailRegex.test(value)) return "Email is not valid.";
     }
 
     if (field === "phoneNumber") {
-      if (!value) return "Phone number wajib diisi.";
-      if (isNaN(Number(value))) return "Phone number hanya boleh berisi angka.";
-      if (value.length < 10) return "Phone number minimal 10 digit.";
+      if (!value) return "Phone number is required.";
+      if (isNaN(Number(value))) return "Phone number must be a number.";
+      if (value.length < 10) return "Phone number must be at least 10 digits.";
     }
 
     return "";
