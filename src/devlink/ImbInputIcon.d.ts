@@ -8,6 +8,7 @@ declare function ImbInputIcon(props: {
   id?: Types.Basic.IdTextInput;
   type?: Types.Builtin.Text;
   variant?: "Base" | "input-button";
-  runtimeProps?: Types.Devlink.RuntimeProps;
+  inputProps?: Types.Devlink.RuntimeProps;
   errorText?: React.ReactNode;
+  errorMessageProps?: Types.Devlink.RuntimeProps;
 }): React.JSX.Element;
