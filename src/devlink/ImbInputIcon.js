@@ -11,8 +11,9 @@ export function ImbInputIcon({
   id = "",
   type = "text",
   variant = "Base",
-  runtimeProps = {},
+  inputProps = {},
   errorText = "* Field is required",
+  errorMessageProps = {},
 }) {
   const _styleVariantMap = {
     Base: "",
@@ -66,7 +67,7 @@ export function ImbInputIcon({
           required={false}
           autoFocus={false}
           data-type={type}
-          {...runtimeProps}
+          {...inputProps}
         />
         <_Builtin.Image
           className={_utils.cx(
@@ -98,6 +99,7 @@ export function ImbInputIcon({
           _activeStyleVariant
         )}
         tag="div"
+        {...errorMessageProps}
       >
         {errorText}
       </_Builtin.Block>
