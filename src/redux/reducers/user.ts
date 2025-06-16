@@ -48,14 +48,12 @@ const userSlice = createSlice({
   },
 });
 
-// Export the actions for the user slice
 /**
  * Export the actions for the user slice
  * @returns The actions for the user slice
  */
 export const { setProfileUser, logout } = userSlice.actions;
 
-// Export the reducer for the user slice
 /**
  * Export the reducer for the user slice
  * @returns The reducer for the user slice

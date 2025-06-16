@@ -6,6 +6,11 @@ import { Signup } from "@/types/user";
 import { signupRequestAdapter, signupResponseAdapter } from "@/adapters/signup";
 import handleApiError from "@/utils/helpers/handleApiError";
 
+/**
+ * Define the auth api
+ * use comunication api call
+ * @returns The auth api
+ */
 const authApi = {
   signup: async (data: Users) => {
     return await apiCall<Users, Users>(
